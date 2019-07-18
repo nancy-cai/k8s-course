@@ -1,0 +1,15 @@
+# apiVersion: networking.k8s.io/v1beta1
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: basic-routing
+spec:
+  rules:
+    - host: fleetmannancy.com
+      http:
+        paths:
+          - path: /
+          # the backend tag allows you to route the traffic to a service
+            backend:
+              serviceName: fleetman-webapp
+              servicePort: 80
